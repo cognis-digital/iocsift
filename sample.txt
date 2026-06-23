@@ -1,0 +1,1 @@
+8.8.8.8 contacted evil-domain.example then http://malware.test/payload from user a@corp.test hash d41d8cd98f00b204e9800998ecf8427e and 0123456789abcdef0123456789abcdef01234567

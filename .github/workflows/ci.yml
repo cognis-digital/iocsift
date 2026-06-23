@@ -1,0 +1,20 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - name: run on sample (expect indicators, exit 2)
+        run: |
+          set +e
+          out=$(ruby iocsift.rb sample.txt); code=$?
+          echo "$out"; echo "exit=$code"
+          echo "$out" | grep -q '"tool": "iocsift"' || exit 1
+          echo "$out" | grep -q '8\[.\]8\[.\]8\[.\]8' || { echo "ip not defanged"; exit 1; }
+          [ "$code" = "2" ] || { echo "expected exit 2"; exit 1; }
+      - name: syntax check
+        run: ruby -c iocsift.rb
