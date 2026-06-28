@@ -8,6 +8,29 @@
 
 Part of the **[Cognis Neural Suite](https://github.com/cognis-digital)** — 370+ single-purpose, self-hostable tools. Like every tool in the suite, `iocsift` is single-purpose, emits machine-readable JSON, and exits non-zero when it finds something (CI-friendly).
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+  "io_cpe": {
+    "windows_xp_sp2": {
+      "cve_ids": ["CVE-2021-34567"],
+      "ioc_count": 10,
+      "iocs": [
+        {"sha256": "1234567890abcdef", "name": "Malware1.exe"},
+        {"sha256": "2345678901cdfghij", "name": "Malware2.dll"}
+      ]
+    }
+  }
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Build / run
 
 ```bash
